@@ -7,6 +7,7 @@
 import React, {Component} from 'react'
 import {AppRegistry, StyleSheet, Text, View, Image} from 'react-native'
 import NativeToast from './js/NativeModuleBridge'
+import GlideImageView from './js/GlideImageView'
 
 var MOCKED_MOVIES_DATA = [
   {
@@ -17,6 +18,8 @@ var MOCKED_MOVIES_DATA = [
     }
   }
 ];
+
+var IMG_URL = "http://awb.img1.xmtbang.com/wechatmsg2015/article201502/20150204/thumb/7dc3aac5c0244a11ab315d177d1292ed.jpg"
 
 export default class AwesomeProject extends Component {
 
@@ -48,6 +51,7 @@ export default class AwesomeProject extends Component {
           <Text style={styles.title} onPress={this._onPress}>{this.state.movie.title}</Text>
           <Text style={styles.year}>{this.state.movie.year}</Text>
         </View>
+        <GlideImageView style={styles.glideimg} url={IMG_URL}/>
       </View>
     );
   }
@@ -76,6 +80,11 @@ const styles = StyleSheet.create({
   },
   year: {
     textAlign: 'center'
+  },
+  glideimg: {
+    width: 80,
+    height: 80,
+    margin: 14
   }
 });
 
